@@ -1,0 +1,35 @@
+version: "2"
+services:
+  artifactory:
+    image: "docker.bintray.io/jfrog/artifactory-oss:4.14.1"
+    ports:
+     - "8081"
+    volumes:
+     - artifactory_etc:/etc/opt/jfrog/artifactory
+     - artifactory_home:/var/opt/jfrog/artifactory
+     - artifactory_opt:/opt/jfrog/artifactory
+  gitlab:
+    image: "gitlab/gitlab-ce:8.13.3-ce.0"
+    ports:
+     - "22"
+     - "80"
+     - "443"
+    volumes:
+     - gitlab_etc:/etc/gitlab
+     - gitlab_log:/var/log/gitlab
+     - gitlab_opt:/var/opt/gitlab
+  jenkins:
+    image: "jenkins:2.19.1"
+    ports:
+     - "8080"
+     - "50000"
+    volumes:
+     - jenkins_home:/var/jenkins_home
+volumes:
+  artifactory_etc:
+  artifactory_home:
+  artifactory_opt:
+  gitlab_etc:
+  gitlab_log:
+  gitlab_opt:
+  jenkins_home:
