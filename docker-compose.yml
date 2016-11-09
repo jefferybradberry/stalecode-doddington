@@ -7,9 +7,8 @@ services:
     volumes:
      - artifactory_etc:/etc/opt/jfrog/artifactory
      - artifactory_home:/var/opt/jfrog/artifactory
-     - artifactory_opt:/opt/jfrog/artifactory
   gitlab:
-    image: "gitlab/gitlab-ce:8.13.3-ce.0"
+    image: "gitlab/gitlab-ce:8.13.5-ce.0"
     ports:
      - "22"
      - "80"
@@ -19,7 +18,7 @@ services:
      - gitlab_log:/var/log/gitlab
      - gitlab_opt:/var/opt/gitlab
   jenkins:
-    image: "jenkins:2.19.1"
+    image: "jenkins:2.19.2"
     ports:
      - "8080"
      - "50000"
@@ -28,7 +27,6 @@ services:
 volumes:
   artifactory_etc:
   artifactory_home:
-  artifactory_opt:
   gitlab_etc:
   gitlab_log:
   gitlab_opt:
